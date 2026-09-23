@@ -17,3 +17,22 @@ Se implementará una base de datos relacional estructurada y normalizada que sep
 * **Negativas / Riesgos:** 
   - Requiere un diseño de base de datos más estricto desde el inicio.
   - Las consultas de búsqueda (como buscar por título o autor) requerirán usar múltiples `JOIN`, lo que podría requerir optimización e índices adecuados para no afectar el rendimiento.
+
+  ---
+
+# Actualización de Decisiones - Versión 1.1
+
+**Fecha:** 2026-09-23  
+**Estado:** Aceptada
+
+## 1. Sistema de Roles y Permisos
+* **Decisión:** Se implementa un control de acceso basado en roles (*RBAC*) divididos en: **Administrador**, **Bibliotecario** y **Lector / Estudiante**.
+* **Motivo:** Garantizar que los lectores solo puedan consultar disponibilidad y su historial personal, restringiendo el alta de libros y la gestión de multas únicamente al personal autorizado.
+
+## 2. Identificación de Ejemplares por Código de Barras
+* **Decisión:** Cada ejemplar físico tendrá asignado un código de barras (formato Code 128) generado a partir de su ID único.
+* **Motivo:** Agilizar la entrega y recepción de libros en la barra de atención mediante lectores ópticos, evitando errores al digitar IDs manualmente.
+
+## 3. Control de Multas y Notificaciones
+* **Decisión:** Se establece una rutina de verificación diaria para marcar préstamos vencidos, calcular multas automáticas según los días de retraso y deshabilitar temporalmente las peticiones de usuarios morosos.
+* **Motivo:** Mantener el control del inventario y automatizar las sanciones sin requerir revisión manual del bibliotecario.
