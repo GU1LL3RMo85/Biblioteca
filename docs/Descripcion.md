@@ -35,3 +35,10 @@ Se facilitará al personal encargado la consulta de los recursos disponibles y e
 ## Arquitectura del sistema
 
 El sistema de biblioteca funcionará exclusivamente mediante archivos de Excel.
+
+## Flujo de reserva de libros
+
+Cuando un usuario consulte un libro el sistema mostrará su estado de disponibilidad.
+
+Si el libro se encuentra disponible, el usuario podrá continuar con el proceso normal de préstamo. Si el libro aparezca como no disponible, la interfaz habilitará la opción para solicitar una reserva.
+
