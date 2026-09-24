@@ -23,4 +23,6 @@ El sistema permitirá registrar y consultar información de los usuarios, manten
 
 También permitirá que el personal encargado de la biblioteca pueda consultar la disponibilidad de los recursos y conocer qué materiales se encuentran prestados.
 
+## Organización de la información
 
+El sistema permitirá mantener organizada la información relacionada con los materiales disponibles y con las operaciones realizadas por los usuarios de la biblioteca.
