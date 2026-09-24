@@ -12,3 +12,7 @@ También deberá permitir consultar la disponibilidad de los libros y buscar eje
 
 El sistema deberá permitir identificar los libros que se encuentran prestados y mostrar la fecha de devolución.
 
+
+
+El sistema permitirá que un usuario tenga una cantidad ilimitada de libros prestados.
+
