@@ -28,3 +28,7 @@ También permitirá que el personal encargado de la biblioteca pueda consultar l
 El sistema permitirá mantener organizada la información relacionada con los materiales disponibles y con las operaciones realizadas por los usuarios de la biblioteca.
 
 Se facilitará al personal encargado la consulta de los recursos disponibles y el seguimiento de las actividades realizadas dentro de la biblioteca.
+
+## Arquitectura del sistema
+
+El sistema de biblioteca funcionará exclusivamente mediante archivos de Excel.
