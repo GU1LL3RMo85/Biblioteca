@@ -36,3 +36,12 @@ Se implementará una base de datos relacional estructurada y normalizada que sep
 ## 3. Control de Multas y Notificaciones
 * **Decisión:** Se establece una rutina de verificación diaria para marcar préstamos vencidos, calcular multas automáticas según los días de retraso y deshabilitar temporalmente las peticiones de usuarios morosos.
 * **Motivo:** Mantener el control del inventario y automatizar las sanciones sin requerir revisión manual del bibliotecario.
+
+## Decisión de Arquitectura: Módulo de Reservas de Libros
+
+### Contexto
+El cliente requiere que, cuando un libro no esté disponible para préstamo inmediato, el usuario pueda solicitar una reserva. El sistema debe registrar de manera persistente e inalterable quién realizó la solicitud y la fecha/hora exacta en que se registró.
+
+### Decisión: Incorporación de la Entidad `reservas` en el Modelo de Datos
+
+Se opta por integrar una nueva entidad relacional en la base de datos para gestionar la cola de espera de ejemplares no disponibles.
