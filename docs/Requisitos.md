@@ -12,3 +12,4 @@ También deberá permitir consultar la disponibilidad de los libros y buscar eje
 
 El sistema deberá permitir identificar los libros que se encuentran prestados y mostrar la fecha prevista de devolución.
 
+-El sistema limitará a cada usuario a un máximo de 3 libros prestados al mismo tiempo.
