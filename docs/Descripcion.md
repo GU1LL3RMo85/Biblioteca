@@ -42,3 +42,10 @@ Cuando un usuario consulte un libro el sistema mostrará su estado de disponibil
 
 Si el libro se encuentra disponible, el usuario podrá continuar con el proceso normal de préstamo. Si el libro aparezca como no disponible, la interfaz habilitará la opción para solicitar una reserva.
 
+
+### Interacción 
+
+La vista será responsable de mostrar al usuario la información del libro y su estado actual. Cuando el estado del libro sea no disponible, se mostrará el botón para solicitar una reserva. 
+
+Al presionarlo, la interfaz enviará la solicitud al controlador junto con la identificación del libro y la información del usuario autenticado.
+
