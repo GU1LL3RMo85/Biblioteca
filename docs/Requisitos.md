@@ -10,5 +10,5 @@ También deberá permitir consultar la disponibilidad de los libros y buscar eje
 
 
 
-El sistema deberá permitir identificar los libros que se encuentran prestados y mostrar la fecha prevista de devolución.
+El sistema deberá permitir identificar los libros que se encuentran prestados y mostrar la fecha de devolución.
 
