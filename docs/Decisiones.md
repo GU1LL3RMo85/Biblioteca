@@ -36,3 +36,27 @@ Se implementará una base de datos relacional estructurada y normalizada que sep
 ## 3. Control de Multas y Notificaciones
 * **Decisión:** Se establece una rutina de verificación diaria para marcar préstamos vencidos, calcular multas automáticas según los días de retraso y deshabilitar temporalmente las peticiones de usuarios morosos.
 * **Motivo:** Mantener el control del inventario y automatizar las sanciones sin requerir revisión manual del bibliotecario.
+
+## Decisión de Arquitectura: Módulo de Reservas de Libros
+
+### Contexto
+El cliente requiere que, cuando un libro no esté disponible para préstamo inmediato, el usuario pueda solicitar una reserva. El sistema debe registrar de manera persistente e inalterable quién realizó la solicitud y la fecha/hora exacta en que se registró.
+
+### Decisión: Incorporación de la Entidad `reservas` en el Modelo de Datos
+
+Se opta por integrar una nueva entidad relacional en la base de datos para gestionar la cola de espera de ejemplares no disponibles.
+
+#### Estructura de la Tabla `reservas`
+
+| Campo | Tipo de Dato | Restricciones | Descripción |
+| :--- | :--- | :--- | :--- |
+| `id_reserva` | `INT / SERIAL` | `PRIMARY KEY` | Identificador único de la solicitud de reserva. |
+| `id_usuario` | `INT` | `FOREIGN KEY` (usuarios.id) | Identificador del usuario (estudiante, profesor o administrativo) que realiza la reserva. |
+| `id_libro` | `INT` | `FOREIGN KEY` (libros.id) | Identificador del libro que se encuentra no disponible. |
+| `fecha_solicitud` | `TIMESTAMP` | `NOT NULL DEFAULT CURRENT_TIMESTAMP` | Fecha y hora exacta de la solicitud. |
+| `estado_reserva` | `VARCHAR(20)` | `NOT NULL DEFAULT 'PENDIENTE'` | Estado actual de la reserva (`PENDIENTE`, `ATENDIDA`, `CANCELADA`). |
+
+#### Reglas de Integridad y Restricciones
+1. **Validación de Disponibilidad:** Solo se pueden insertar registros en `reservas` si el libro asociado tiene estado `PRESTADO` o `NO DISPONIBLE`.
+2. **Integridad Referencial:** Se configuran llaves foráneas con restricción `ON DELETE RESTRICT` para impedir la eliminación accidental de usuarios o libros que tengan reservas asociadas activas.
+3. **Indexación:** Se añade un índice compuesto sobre `(id_libro, fecha_solicitud)` para agilizar la consulta de prioridades en la cola de espera al momento de la devolución de un ejemplar.
